@@ -20,6 +20,7 @@ public class MySurfaceView extends SurfaceView implements Callback , Runnable{
 	Bitmap pic;
 	public MySurfaceView(Context context) {
 		super(context);
+		this.setDrawingCacheEnabled(true);
 		sfh = this.getHolder();
 		sfh.addCallback(this);
 		paint = new Paint();
@@ -32,10 +33,12 @@ public class MySurfaceView extends SurfaceView implements Callback , Runnable{
 	public void run() {
 		long start = 0;
 		long end = 0;
-		start = System.currentTimeMillis();
-		this.myDraw();
-		end = System.currentTimeMillis();
-		System.out.println("ºÄÊ±£º "+ (end - start));
+		while(true){
+			start = System.currentTimeMillis();
+			this.myDraw();
+			end = System.currentTimeMillis();
+			System.out.println("ºÄÊ±£º "+ (end - start));
+		}
 	}
 
 	@Override
@@ -52,6 +55,15 @@ public class MySurfaceView extends SurfaceView implements Callback , Runnable{
 		canvas = sfh.lockCanvas();
 		if(canvas != null){
 			canvas.drawBitmap(pic, 0, 0, paint);
+			canvas.drawBitmap(pic, 0, 0, paint);
+			canvas.drawBitmap(pic, 0, 0, paint);
+//			canvas.drawBitmap(pic, 0, 0, paint);
+//			canvas.drawBitmap(pic, 0, 0, paint);
+//			canvas.drawBitmap(pic, 0, 0, paint);
+//			canvas.drawBitmap(pic, 0, 0, paint);
+//			canvas.drawBitmap(pic, 0, 0, paint);
+//			canvas.drawBitmap(pic, 0, 0, paint);
+//			canvas.drawBitmap(pic, 0, 0, paint);
 		}
 		sfh.unlockCanvasAndPost(canvas);
 	}
