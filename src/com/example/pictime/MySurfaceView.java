@@ -25,7 +25,7 @@ public class MySurfaceView extends SurfaceView implements Callback , Runnable{
 		sfh.addCallback(this);
 		paint = new Paint();
 		paint.setColor(Color.BLACK);
-		pic = BitmapFactory.decodeResource(getResources(), R.drawable.pic2);
+		pic = BitmapFactory.decodeResource(getResources(), R.drawable.picjpeg);
 		setFocusable(true);
 	}
 
@@ -37,7 +37,8 @@ public class MySurfaceView extends SurfaceView implements Callback , Runnable{
 			start = System.currentTimeMillis();
 			this.myDraw();
 			end = System.currentTimeMillis();
-			System.out.println("耗时： "+ (end - start));
+//			System.out.println("耗时： "+ (end - start)+"图片宽："+pic.getWidth()+"图片高："+pic.getHeight());
+//			System.out.println("耗时： "+ (end - start)+" freeMemory: "+Runtime.getRuntime().freeMemory()+" maxMemory: "+Runtime.getRuntime().maxMemory());
 		}
 	}
 
@@ -104,6 +105,7 @@ public class MySurfaceView extends SurfaceView implements Callback , Runnable{
 			canvas.drawBitmap(pic, 0, 0, paint);
 			canvas.drawBitmap(pic, 0, 0, paint);
 			canvas.drawBitmap(pic, 0, 0, paint);
+			System.out.println("加速？："+canvas.isHardwareAccelerated());
 		}
 		sfh.unlockCanvasAndPost(canvas);
 	}

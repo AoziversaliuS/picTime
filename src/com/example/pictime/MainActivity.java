@@ -3,12 +3,13 @@ package com.example.pictime;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
-
 public class MainActivity extends Activity {
 
+	private final static int HEAP_SIZE = 6* 1024* 1024 ;  
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+//		VMRuntime.getRuntime().setMinimumHeapSize(HEAP_SIZE);  
 		setContentView(new MySurfaceView(this));
 	}
 
